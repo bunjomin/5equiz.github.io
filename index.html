@@ -7,6 +7,20 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <style>
+    .answer-card {
+        border: 2px solid transparent;
+        transition: border-color 0.3s;
+    }
+    .answer-card:hover {
+        border-color: #4a90e2;
+    }
+    .answer-card input:checked + .card-content {
+        border-color: #4a90e2;
+        background-color: #ebf8ff;
+    }
+</style>
+
     <div class="max-w-2xl mx-auto bg-white p-8 shadow-md rounded-lg">
         <h1 class="text-2xl font-bold mb-4" id="question-title">Question Title</h1>
         <p class="mb-4" id="question-body">Question Body</p>
