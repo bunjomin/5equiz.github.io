@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const questionSituation = document.getElementById('question-situation');
     const answersContainer = document.getElementById('answers-container');
     const postAnswer = document.getElementById('post-answer');
+    const submitButton = document.getElementById('submit');
 
     function loadQuestion(data) {
         questionTitle.textContent = data.question.title;
@@ -46,11 +47,21 @@ document.addEventListener('DOMContentLoaded', function () {
             label.appendChild(answerText);
             answerCard.addEventListener('click', (e) => {
               e.preventDefault();
+              if (!input.checked) {
+                document.querySelectorAll('.answer-card').forEach(el => {
+                  el.classList.remove('checked');
+                  el.querySelector('input').removeAttribute('checked');
+                });
+              }
               input.checked = !input.checked;
-              if (input.checked && !answerCard.classList.contains('checked'))
-                answerCard.classList.add('checked')
-              else if (!input.checked && !!answerCard.classList.contains('checked'))
-                answerCard.classList.remove('checked')
+              input.setAttribute('checked', input.checked);
+              if (input.checked && !answerCard.classList.contains('checked')) {
+                answerCard.classList.add('checked');
+                submitButton.removeAttribute('disabled');
+              } else if (!input.checked && !!answerCard.classList.contains('checked')) {
+                answerCard.classList.remove('checked');
+                submitButton.setAttribute('disabled', true);
+              }
             });
             answerCard.appendChild(input);
             answerCard.appendChild(label);

@@ -24,6 +24,11 @@
       border-color: #4a90e2;
       background-color: #ebf8ff;
     }
+
+    #submit:disabled {
+      background-color: #878787;
+      cursor: not-allowed;
+    }
   </style>
 
   <div class="max-w-2xl mx-auto bg-white p-8 shadow-md rounded-lg">
@@ -33,7 +38,7 @@
     <form id="quiz-form">
       <div class="space-y-4" id="answers-container">
       </div>
-      <button type="submit" class="mt-6 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+      <button id="submit" type="submit" class="mt-6 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600" disabled>
         Submit
       </button>
     </form>
