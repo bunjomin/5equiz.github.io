@@ -44,6 +44,14 @@ document.addEventListener('DOMContentLoaded', function () {
             answerText.className = 'text-lg';
 
             label.appendChild(answerText);
+            answerCard.addEventListener('click', (e) => {
+              e.preventDefault();
+              input.checked = !input.checked;
+              if (input.checked && !answerCard.classList.contains('checked'))
+                answerCard.classList.add('checked')
+              else if (!input.checked && !!answerCard.classList.contains('checked'))
+                answerCard.classList.remove('checked')
+            });
             answerCard.appendChild(input);
             answerCard.appendChild(label);
 
