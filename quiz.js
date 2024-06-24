@@ -877,6 +877,450 @@ document.addEventListener("DOMContentLoaded", function () {
         post: "In D&D 5e, advantage and disadvantage are commonly influenced by conditions or tactical positioning. Understanding these mechanics can greatly improve your effectiveness in combat.",
       },
     },
+    {
+      question: {
+        title: "Making an Attack",
+        body: "Which of the following is the correct order of steps for making an attack in Dungeons & Dragons 5th Edition?",
+        situation:
+          "You are a fighter facing a goblin and preparing to make an attack with your longsword.",
+        answers: [
+          {
+            body: "Choose a target, determine modifiers, resolve the attack.",
+            correct: true,
+            citation: "DnD 5e Players Handbook, page 150",
+          },
+          {
+            body: "Resolve the attack, determine modifiers, choose a target.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 150",
+          },
+          {
+            body: "Determine modifiers, resolve the attack, choose a target.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 150",
+          },
+          {
+            body: "Choose a target, resolve the attack, determine modifiers.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 150",
+          },
+        ],
+        post: "When making an attack, it's important to follow the correct order of steps to ensure the attack is handled properly. This includes choosing a target, determining any modifiers, and then resolving the attack.",
+      },
+    },
+    {
+      question: {
+        title: "Definition of the Animal Handling Skill",
+        body: "What does the Animal Handling skill primarily involve?",
+        answers: [
+          {
+            body: "Calming down a domesticated animal, keeping a mount from getting spooked, or intuiting an animal’s intentions.",
+            correct: true,
+            citation: "DnD 5e Players Handbook, page 139",
+          },
+          {
+            body: "Detecting hidden traps or secret doors in a dungeon.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 139",
+          },
+          {
+            body: "Deciphering ancient languages and runes.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 139",
+          },
+          {
+            body: "Performing acrobatic stunts like flips and rolls.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 139",
+          },
+        ],
+        post: "The Animal Handling skill is crucial for characters who frequently interact with animals, ensuring they can manage and understand animal behavior effectively.",
+      },
+    },
+    {
+      question: {
+        title: "Spell Components and Casting",
+        body: "Which of the following statements about spell components is true?",
+        answers: [
+          {
+            body: "A spellcaster must always provide all components (verbal, somatic, material) to cast a spell.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 158",
+          },
+          {
+            body: "A spellcaster can use a spellcasting focus in place of material components that don't have a cost.",
+            correct: true,
+            citation: "DnD 5e Players Handbook, page 158",
+          },
+          {
+            body: "A spellcaster can cast a spell with verbal components in an area of silence.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 158",
+          },
+          {
+            body: "A spellcaster must have both hands free to cast a spell with somatic components.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 158",
+          },
+        ],
+        post: "Understanding the components required for casting spells is crucial for effective spellcasting. Components can include verbal, somatic, and material elements, and a spellcasting focus can often replace material components without a specified cost.",
+      },
+    },
+    {
+      question: {
+        title: "Adventuring Basics",
+        body: "Which of the following actions can a character perform while traveling without contributing their passive Wisdom (Perception) score to notice hidden threats?",
+        answers: [
+          {
+            body: "Navigating to prevent the group from getting lost.",
+            correct: true,
+            citation: "DnD 5e Players Handbook, page 143",
+          },
+          {
+            body: "Marching at the front of the group.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 143",
+          },
+          {
+            body: "Maintaining a normal travel pace.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 143",
+          },
+          {
+            body: "Watching for potential dangers.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 143",
+          },
+        ],
+        post: "While traveling, characters can engage in activities such as navigating, drawing maps, tracking, or foraging, but these tasks will prevent them from contributing their passive Wisdom (Perception) score to notice hidden threats.",
+      },
+    },
+    {
+      question: {
+        title: "Understanding Lighting in D&D 5e",
+        body: "Which of the following accurately describes the effects of dim light in D&D 5th Edition?",
+        answers: [
+          {
+            body: "Dim light creates a heavily obscured area where creatures are considered blinded.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 143",
+          },
+          {
+            body: "Dim light creates a lightly obscured area, imposing disadvantage on Wisdom (Perception) checks that rely on sight.",
+            correct: true,
+            citation: "DnD 5e Players Handbook, page 143",
+          },
+          {
+            body: "Dim light makes it impossible to see anything, as if in total darkness.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 143",
+          },
+          {
+            body: "Dim light allows creatures to see perfectly, with no penalties.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 143",
+          },
+        ],
+        post: "Understanding the different lighting conditions in D&D is essential for navigating and strategizing in various environments. Dim light, often referred to as shadows, creates a lightly obscured area that affects perception.",
+      },
+    },
+    {
+      question: {
+        title: "Understanding Resting in D&D 5e",
+        body: "Which of the following statements about a long rest is true?",
+        answers: [
+          {
+            body: "A long rest must be at least 6 hours long.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 145",
+          },
+          {
+            body: "A character can benefit from multiple long rests in a 24-hour period.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 145",
+          },
+          {
+            body: "A long rest can be interrupted by up to 1 hour of walking, fighting, casting spells, or other strenuous activity.",
+            correct: true,
+            citation: "DnD 5e Players Handbook, page 145",
+          },
+          {
+            body: "At the end of a long rest, a character regains all spent Hit Dice.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 145",
+          },
+        ],
+        post: "Long rests are crucial for characters to recover hit points and regain spell slots. Ensure to follow the rules about the duration and interruptions to make the most out of a long rest.",
+      },
+    },
+    {
+      question: {
+        title: "Performing an Ability Check",
+        body: "You are attempting to climb a sheer cliff face during a rainstorm. Which ability check should you make, and what might the DM consider in determining the DC?",
+        situation:
+          "As you ascend the cliff, the rain makes the rocks slippery and more difficult to grip.",
+        answers: [
+          {
+            body: "Strength (Athletics) check, with a higher DC due to the rain.",
+            correct: true,
+            citation: "DnD 5e Players Handbook, page 136",
+          },
+          {
+            body: "Dexterity (Acrobatics) check, with a lower DC due to the rain.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 136",
+          },
+          {
+            body: "Constitution (Endurance) check, with no change in DC due to the rain.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 136",
+          },
+          {
+            body: "Wisdom (Perception) check, with a higher DC due to the rain.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 136",
+          },
+        ],
+        post: "In challenging environmental conditions, DMs often adjust the Difficulty Class (DC) of ability checks to reflect the increased difficulty. Climbing a slippery cliff during a rainstorm would require a Strength (Athletics) check with a higher DC.",
+      },
+    },
+    {
+      question: {
+        title: "Ranged Attacks in Close Combat",
+        body: "What disadvantage does a character face when making a ranged attack while within 5 feet of a hostile creature that can see them and isn't incapacitated?",
+        situation:
+          "You are a ranger in melee combat with an orc, and you want to use your longbow to attack.",
+        answers: [
+          {
+            body: "The attack is made with disadvantage.",
+            correct: true,
+            citation: "DnD 5e Players Handbook, page 151",
+          },
+          {
+            body: "The attack automatically misses.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 151",
+          },
+          {
+            body: "The attack can only be made as a melee attack.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 151",
+          },
+          {
+            body: "The attack deals half damage.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 151",
+          },
+        ],
+        post: "When making a ranged attack while within 5 feet of a hostile creature that can see you and isn't incapacitated, you have disadvantage on the attack roll. This rule encourages strategic positioning in combat.",
+      },
+    },
+    {
+      question: {
+        title: "Understanding Cover in Combat",
+        body: "Which of the following statements accurately describes three-quarters cover?",
+        answers: [
+          {
+            body: "A target with three-quarters cover has a +5 bonus to AC and Dexterity saving throws.",
+            correct: true,
+            citation: "DnD 5e Players Handbook, page 152",
+          },
+          {
+            body: "A target with three-quarters cover has a +2 bonus to AC and Dexterity saving throws.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 152",
+          },
+          {
+            body: "A target with three-quarters cover cannot be targeted by attacks.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 152",
+          },
+          {
+            body: "A target with three-quarters cover has a +3 bonus to AC and Dexterity saving throws.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 152",
+          },
+        ],
+        post: "Cover is an important aspect of combat in D&D 5e, providing various bonuses to AC and Dexterity saving throws depending on the degree of cover. Three-quarters cover offers a significant defensive advantage.",
+      },
+    },
+    {
+      question: {
+        title: "Warlock's Pact Magic",
+        body: "What happens when a warlock uses their Pact Magic feature to cast a spell using a spell slot?",
+        answers: [
+          {
+            body: "The spell is always cast at the highest level of spell slot available to the warlock.",
+            correct: true,
+            citation: "DnD 5e Players Handbook, page 85",
+          },
+          {
+            body: "The warlock can choose the level of the spell slot used, similar to wizards.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 85",
+          },
+          {
+            body: "The spell is cast at its lowest level, regardless of the spell slot used.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 85",
+          },
+          {
+            body: "The warlock cannot cast spells using spell slots.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 85",
+          },
+        ],
+        post: "Warlocks have a unique spellcasting feature called Pact Magic, which differs from other spellcasters. They cast their spells using the highest-level spell slots available to them.",
+      },
+    },
+    {
+      question: {
+        title: "Druid's Wild Shape",
+        body: "What happens to a druid's equipment when they use Wild Shape to transform into a beast?",
+        answers: [
+          {
+            body: "The equipment merges into the new form and has no effect until the druid reverts back.",
+            correct: true,
+            citation: "DnD 5e Players Handbook, page 50",
+          },
+          {
+            body: "The equipment falls to the ground and cannot be used until picked up again.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 50",
+          },
+          {
+            body: "The equipment reshapes to fit the new form and functions as normal.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 50",
+          },
+          {
+            body: "The equipment is destroyed and must be replaced.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 50",
+          },
+        ],
+        post: "When a druid uses Wild Shape, they can choose whether their equipment falls to the ground, merges into their new form, or is worn by the new form. Equipment that merges has no effect until the druid reverts back.",
+      },
+    },
+    {
+      question: {
+        title: "Thrown Weapons vs. Other Ranged Weapons",
+        body: "Which of the following is a key difference between thrown weapons and other ranged weapons like bows or crossbows in D&D 5e?",
+        answers: [
+          {
+            body: "Thrown weapons use the same ability modifier for attack and damage rolls as they do for melee attacks.",
+            correct: true,
+            citation: "DnD 5e Players Handbook, page 152",
+          },
+          {
+            body: "Thrown weapons require the use of ammunition to make an attack.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 152",
+          },
+          {
+            body: "Thrown weapons always use Dexterity for attack and damage rolls.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 152",
+          },
+          {
+            body: "Thrown weapons have a longer range than bows or crossbows.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 152",
+          },
+        ],
+        post: "Thrown weapons, unlike other ranged weapons, use the same ability modifier for attack and damage rolls as they do for melee attacks. This can be Strength or Dexterity, depending on the weapon's properties.",
+      },
+    },
+    {
+      question: {
+        title: "Opportunity Attacks",
+        body: "When can a character make an opportunity attack?",
+        situation:
+          "You are engaged in melee combat with an enemy and are considering your options.",
+        answers: [
+          {
+            body: "When a hostile creature that you can see moves out of your reach.",
+            correct: true,
+            citation: "DnD 5e Players Handbook, page 151",
+          },
+          {
+            body: "When you move out of a hostile creature's reach.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 151",
+          },
+          {
+            body: "When a creature teleports out of your reach.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 151",
+          },
+          {
+            body: "When a creature takes the Disengage action and moves out of your reach.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 151",
+          },
+        ],
+        post: "Opportunity attacks are a crucial part of melee combat strategy, allowing you to potentially interrupt an enemy's movement and deal damage as they try to escape your reach.",
+      },
+    },
+    {
+      question: {
+        title: "Roleplaying Alignment",
+        body: "How might a lawful good character react to witnessing a thief stealing from a market stall?",
+        situation: "You are playing a paladin in a bustling city marketplace.",
+        answers: [
+          {
+            body: "They would try to stop the thief and return the stolen goods to the rightful owner, possibly involving the local authorities.",
+            correct: true,
+            citation: "DnD 5e Players Handbook, page 98",
+          },
+          {
+            body: "They would ignore the theft, believing it is not their business.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 98",
+          },
+          {
+            body: "They would help the thief escape, believing the merchant is wealthy enough to afford the loss.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 98",
+          },
+          {
+            body: "They would confront the thief and demand a share of the stolen goods.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 98",
+          },
+        ],
+        post: "Roleplaying a character's alignment involves making decisions that reflect their moral and ethical beliefs. A lawful good character values law, order, and helping others, which guides their actions in various situations.",
+      },
+    },
+    {
+      question: {
+        title: "Multiclassing Requirements",
+        body: "Which ability scores must be 13 or higher for a character to multiclass into a paladin?",
+        answers: [
+          {
+            body: "Strength and Charisma",
+            correct: true,
+            citation: "DnD 5e Players Handbook, page 127",
+          },
+          {
+            body: "Strength and Dexterity",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 127",
+          },
+          {
+            body: "Wisdom and Charisma",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 127",
+          },
+          {
+            body: "Dexterity and Wisdom",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 127",
+          },
+        ],
+        post: "To multiclass into certain classes, you must meet the ability score prerequisites. For a paladin, this means having a Strength and Charisma score of 13 or higher.",
+      },
+    },
   ];
 
   // Thanks https://stackoverflow.com/a/2450976
