@@ -698,7 +698,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       question: {
         title: "Hypothetical Combat Scenario",
-        scenario:
+        situation:
           "A rogue uses their Cunning Action to attack twice in a single turn.",
         body: "Is this a legal action?",
         answers: [
