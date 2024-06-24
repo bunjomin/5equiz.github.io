@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const nextButton = document.getElementById("next");
   const questionLabel = document.getElementById("question-label");
   const situationLabel = document.getElementById("situation-label");
+  const citationText = document.getElementById("citation");
   let correct = 0;
   let total = 0;
 
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     situationLabel.innerHTML = "";
     questionSituation.innerHTML = "";
     questionBody.innerHTML = "";
+    citationText.innerHTML = "";
     questionTitle.textContent = "Quiz Complete!";
     questionLabel.textContent = `Score: ${correct} / ${total} (${(
       (correct / total) *
@@ -42,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     submitButton.setAttribute("disabled", true);
     nextButton.style.display = "none";
     submitButton.style.display = "block";
+    citationText.innerHTML = "";
 
     shuffle(data.question.answers);
 
@@ -102,6 +105,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (selectedAnswer) {
       const answerIndex = parseInt(selectedAnswer.value, 10);
       const isCorrect = questionData.question.answers[answerIndex].correct;
+      if (questionData.question.answers[answerIndex].citation) {
+        citationText.innerHTML = `Citation: <em class="font-medium">${questionData.question.answers[answerIndex].citation}</em>`;
+      }
       if (isCorrect) {
         postAnswer.textContent = `Correct!${
           questionData.question.post ? ` ${questionData.question.post}` : ""
@@ -135,470 +141,695 @@ document.addEventListener("DOMContentLoaded", function () {
   const questions = [
     {
       question: {
-        title: "Deities in D&D",
-        body: "Which deity is primarily associated with the domain of knowledge in the Forgotten Realms?",
+        title: "Channel Divinity Options for Paladins",
+        body: "Paladins gain the ability to use Channel Divinity at 2nd level.",
         answers: [
           {
-            body: "Moradin",
+            body: "True",
             correct: false,
-            citation:
-              "Appendix B: Gods of the Multiverse, D&D Basic Rules 2018, p. 172",
+            citation: "Player's Handbook, p. 67",
           },
           {
-            body: "Corellon Larethian",
-            correct: false,
-            citation:
-              "Appendix B: Gods of the Multiverse, D&D Basic Rules 2018, p. 172",
-          },
-          {
-            body: "Oghma",
+            body: "False",
             correct: true,
-            citation:
-              "Appendix B: Gods of the Multiverse, D&D Basic Rules 2018, p. 172",
-          },
-          {
-            body: "Tymora",
-            correct: false,
-            citation:
-              "Appendix B: Gods of the Multiverse, D&D Basic Rules 2018, p. 172",
+            citation: "Player's Handbook, p. 67",
           },
         ],
+        post: "Paladins gain the ability to use Channel Divinity at 3rd level, as part of their Sacred Oath feature.",
       },
     },
     {
       question: {
-        title: "Roleplaying in a Social Interaction",
-        body: "You are playing as a bard in a bustling city. The party needs information from a suspicious merchant who seems unwilling to cooperate. What should your character do to best handle the situation?",
-        situation:
-          "The party has encountered a merchant who might have critical information about a stolen artifact they are seeking. The merchant is visibly nervous and initially refuses to talk.",
-        answers: [
-          {
-            body: "Intimidate the merchant into revealing the information.",
-            correct: false,
-            citation:
-              "Chapter 7: Using Ability Scores, D&D Basic Rules 2018, p. 64",
-          },
-          {
-            body: "Offer the merchant a bribe to encourage cooperation.",
-            correct: false,
-            citation: "Chapter 8: Adventuring, D&D Basic Rules 2018, p. 70",
-          },
-          {
-            body: "Use your bardic charm and persuasion skills to gain the merchant's trust.",
-            correct: true,
-            citation:
-              "Chapter 4: Personality and Background, D&D Basic Rules 2018, p. 35",
-          },
-          {
-            body: "Cast a spell to detect the merchant's thoughts and gather the information directly.",
-            correct: false,
-            citation: "Chapter 10: Spellcasting, D&D Basic Rules 2018, p. 83",
-          },
-        ],
-        post: "As a bard, leveraging your charisma and persuasion skills often yields better results in social interactions compared to force or deceit.",
-      },
-    },
-    {
-      question: {
-        title: "Handling a Trap in a Dungeon",
-        body: "While exploring a dark dungeon, your party encounters a trapped door. What is the best course of action for the party to safely deal with the trap?",
-        situation:
-          "The party is deep within an ancient dungeon and finds a door that is likely trapped. The rogue in the party suspects there might be a hidden mechanism.",
-        answers: [
-          {
-            body: "Have the rogue attempt to disarm the trap using their thieves' tools.",
-            correct: true,
-            citation:
-              "Chapter 7: Using Ability Scores, D&D Basic Rules 2018, p. 63",
-          },
-          {
-            body: "Break down the door with brute force to bypass the trap.",
-            correct: false,
-            citation: "Chapter 8: Adventuring, D&D Basic Rules 2018, p. 66",
-          },
-          {
-            body: "Cast a spell to teleport the party past the door.",
-            correct: false,
-            citation: "Chapter 10: Spellcasting, D&D Basic Rules 2018, p. 82",
-          },
-          {
-            body: "Trigger the trap from a distance to see what happens.",
-            correct: false,
-            citation: "Chapter 8: Adventuring, D&D Basic Rules 2018, p. 69",
-          },
-        ],
-        post: "Utilizing the rogue's expertise in disarming traps is often the safest approach, as it minimizes risk to the party and allows for a careful examination of potential dangers.",
-      },
-    },
-    {
-      question: {
-        title: "Paladin's Divine Sense",
-        body: "Which of the following is detected by a Paladin's Divine Sense ability?",
-        answers: [
-          {
-            body: "Celestials",
-            correct: true,
-            citation: "Chapter 3: Classes, D&D Basic Rules 2018, p. 44",
-          },
-          {
-            body: "Constructs",
-            correct: false,
-            citation: "Chapter 3: Classes, D&D Basic Rules 2018, p. 44",
-          },
-          {
-            body: "Elementals",
-            correct: false,
-            citation: "Chapter 3: Classes, D&D Basic Rules 2018, p. 44",
-          },
-          {
-            body: "Fey",
-            correct: false,
-            citation: "Chapter 3: Classes, D&D Basic Rules 2018, p. 44",
-          },
-        ],
-        post: "A Paladin's Divine Sense ability allows them to detect the presence of celestials, fiends, and undead within a certain radius, making it a powerful tool for identifying hidden threats.",
-      },
-    },
-    {
-      question: {
-        title: "Determining Initiative",
-        body: "What ability score modifier is added to a character's initiative roll?",
-        answers: [
-          {
-            body: "Strength",
-            correct: false,
-            citation: "Chapter 9: Combat, D&D Basic Rules 2018, p. 73",
-          },
-          {
-            body: "Dexterity",
-            correct: true,
-            citation: "Chapter 9: Combat, D&D Basic Rules 2018, p. 73",
-          },
-          {
-            body: "Wisdom",
-            correct: false,
-            citation: "Chapter 9: Combat, D&D Basic Rules 2018, p. 73",
-          },
-          {
-            body: "Charisma",
-            correct: false,
-            citation: "Chapter 9: Combat, D&D Basic Rules 2018, p. 73",
-          },
-        ],
-        post: "The initiative roll determines the order of turns in combat. Adding the Dexterity modifier reflects a character's quickness and reflexes in reacting to danger.",
-      },
-    },
-    {
-      question: {
-        title: "Actions in Combat",
-        body: "Which of the following is considered an action a character can take on their turn during combat?",
-        answers: [
-          {
-            body: "Cast a spell",
-            correct: true,
-            citation: "Chapter 9: Combat, D&D Basic Rules 2018, p. 74",
-          },
-          {
-            body: "Regain hit points",
-            correct: false,
-            citation: "Chapter 9: Combat, D&D Basic Rules 2018, p. 74",
-          },
-          {
-            body: "Equip a shield",
-            correct: false,
-            citation: "Chapter 9: Combat, D&D Basic Rules 2018, p. 74",
-          },
-          {
-            body: "Use a reaction",
-            correct: false,
-            citation: "Chapter 9: Combat, D&D Basic Rules 2018, p. 74",
-          },
-        ],
-        post: "Casting a spell is one of the standard actions a character can take on their turn in combat. Other actions include making an attack, dashing, disengaging, dodging, helping, hiding, readying an action, searching, and using an object.",
-      },
-    },
-    {
-      question: {
-        title: "Order of Resolution of Effects",
-        body: "True or False: If a character is subjected to both a 'Hold Person' spell and an 'Invisibility' spell in the same round, the 'Hold Person' effect takes precedence and the character is paralyzed but still visible.",
-        situation:
-          "A wizard casts 'Hold Person' on a rogue, and in the same round, another wizard casts 'Invisibility' on the same rogue. The DM needs to determine the rogue's state at the end of these actions.",
+        title: "Skill Proficiency and Ability Checks",
+        body: "Proficiency in the Stealth skill allows a character to add their proficiency bonus to Dexterity checks made to sneak or hide.",
         answers: [
           {
             body: "True",
             correct: true,
-            citation: "Chapter 10: Spellcasting, D&D Basic Rules 2018, p. 81",
+            citation: "Player's Handbook, p. 175",
           },
           {
             body: "False",
             correct: false,
-            citation: "Chapter 10: Spellcasting, D&D Basic Rules 2018, p. 81",
+            citation: "Player's Handbook, p. 175",
           },
         ],
-        post: "The 'Hold Person' spell paralyzes the target, and while paralyzed, the character cannot take any actions, including maintaining concentration on spells such as 'Invisibility'. Therefore, the rogue remains paralyzed and visible.",
+        post: "When a character is proficient in a skill, they can add their proficiency bonus to ability checks involving that skill, enhancing their chances of success.",
       },
     },
     {
       question: {
-        title: "Movement in Combat",
-        body: "Which of the following statements about movement in combat is correct?",
+        title: "Combat Actions: Dodge",
+        body: "Which of the following effects occurs when you take the Dodge action?",
         answers: [
           {
-            body: "A character can move through a space occupied by an enemy as long as they do not end their movement there.",
+            body: "You can move twice your speed for the rest of the turn.",
             correct: false,
-            citation: "Chapter 9: Combat, D&D Basic Rules 2018, p. 73",
+            citation: "Player's Handbook, p. 150",
           },
           {
-            body: "A character can move through a space occupied by a friendly creature.",
+            body: "Your movement doesn't provoke opportunity attacks for the rest of the turn.",
+            correct: false,
+            citation: "Player's Handbook, p. 150",
+          },
+          {
+            body: "Any attack roll made against you has disadvantage if you can see the attacker.",
             correct: true,
-            citation: "Chapter 9: Combat, D&D Basic Rules 2018, p. 73",
+            citation: "Player's Handbook, p. 150",
           },
           {
-            body: "A character can move diagonally through corners of walls without penalty.",
+            body: "You gain advantage on all attack rolls until the start of your next turn.",
             correct: false,
-            citation: "Chapter 9: Combat, D&D Basic Rules 2018, p. 73",
-          },
-          {
-            body: "A character must spend an action to move through difficult terrain.",
-            correct: false,
-            citation: "Chapter 9: Combat, D&D Basic Rules 2018, p. 73",
+            citation: "Player's Handbook, p. 150",
           },
         ],
-        post: "In combat, a character can move through a space occupied by a friendly creature but cannot end their movement in that space. This allows for more tactical flexibility during encounters.",
+        post: "Taking the Dodge action makes you focus entirely on avoiding attacks, causing any attack roll made against you to have disadvantage if you can see the attacker. Additionally, you make Dexterity saving throws with advantage until the start of your next turn.",
       },
     },
     {
       question: {
-        title: "Using Bonus Actions in Combat",
-        body: "Which of the following actions can be performed as a bonus action by a character in combat?",
+        title: "Bonus Actions: Two-Weapon Fighting",
+        body: "What is required to make an attack with your off-hand weapon as a bonus action?",
         answers: [
           {
-            body: "Casting 'Healing Word'",
+            body: "Using a versatile weapon in one hand",
+            correct: false,
+            citation: "Player's Handbook, p. 152",
+          },
+          {
+            body: "Taking the Attack action with a light melee weapon in one hand",
             correct: true,
-            citation: "Chapter 9: Combat, D&D Basic Rules 2018, p. 75",
+            citation: "Player's Handbook, p. 152",
           },
           {
-            body: "Drawing a weapon",
+            body: "Taking the Dodge action",
             correct: false,
-            citation: "Chapter 9: Combat, D&D Basic Rules 2018, p. 75",
+            citation: "Player's Handbook, p. 152",
           },
           {
-            body: "Drinking a potion",
+            body: "Taking the Dash action",
             correct: false,
-            citation: "Chapter 9: Combat, D&D Basic Rules 2018, p. 75",
-          },
-          {
-            body: "Using the 'Disengage' action",
-            correct: false,
-            citation: "Chapter 9: Combat, D&D Basic Rules 2018, p. 75",
+            citation: "Player's Handbook, p. 152",
           },
         ],
-        post: "Some spells, such as 'Healing Word', specifically state that they can be cast as a bonus action. This allows characters to perform another action on their turn, maximizing their effectiveness in combat.",
+        post: "When you take the Attack action and attack with a light melee weapon in one hand, you can use a bonus action to attack with a different light melee weapon in the other hand.",
       },
     },
     {
       question: {
-        title: "Understanding Dungeon Traps",
-        body: "When a character is trying to detect a trap in a dungeon, which of the following skills is primarily used?",
+        title: "Saving Throw Proficiency",
+        body: "Each class in Dungeons & Dragons 5th Edition grants proficiency in at least two saving throws.",
+        answers: [
+          {
+            body: "True",
+            correct: true,
+            citation: "Player's Handbook, p. 140",
+          },
+          {
+            body: "False",
+            correct: false,
+            citation: "Player's Handbook, p. 140",
+          },
+        ],
+        post: "Classes in D&D 5e grant proficiency in two different saving throws, which allows characters to add their proficiency bonus to those saves.",
+      },
+    },
+    {
+      question: {
+        title: "Movement in Difficult Terrain",
+        body: "How much movement does it cost to move 1 foot in difficult terrain?",
+        answers: [
+          {
+            body: "1 foot",
+            correct: false,
+            citation: "Player's Handbook, p. 148",
+          },
+          {
+            body: "2 feet",
+            correct: true,
+            citation: "Player's Handbook, p. 148",
+          },
+          {
+            body: "3 feet",
+            correct: false,
+            citation: "Player's Handbook, p. 148",
+          },
+          {
+            body: "Half your speed",
+            correct: false,
+            citation: "Player's Handbook, p. 148",
+          },
+        ],
+        post: "Moving through difficult terrain costs 1 extra foot of movement for each foot moved, meaning it takes 2 feet of movement to move 1 foot in difficult terrain.",
+      },
+    },
+    {
+      question: {
+        title: "Proficiency in Tool Use",
+        body: "Which of the following statements is true about tool proficiency?",
+        answers: [
+          {
+            body: "Tool proficiency allows you to add your proficiency bonus to any ability check you make using that tool.",
+            correct: true,
+            citation: "Player's Handbook, p. 120",
+          },
+          {
+            body: "Tool proficiency grants you the ability to craft items without the need for raw materials.",
+            correct: false,
+            citation: "Player's Handbook, p. 120",
+          },
+          {
+            body: "Tool proficiency allows you to use the tool to cast certain spells.",
+            correct: false,
+            citation: "Player's Handbook, p. 120",
+          },
+          {
+            body: "Tool proficiency grants you a one-time bonus to your ability score when you first gain it.",
+            correct: false,
+            citation: "Player's Handbook, p. 120",
+          },
+        ],
+        post: "Proficiency with a tool allows you to add your proficiency bonus to any ability check you make using that tool, reflecting your expertise and experience with it.",
+      },
+    },
+    {
+      question: {
+        title: "Initiative Ties",
+        body: "What happens if two players have the same initiative roll in combat?",
+        answers: [
+          {
+            body: "They reroll until there is no tie.",
+            correct: false,
+            citation: "Player's Handbook, p. 147",
+          },
+          {
+            body: "They act simultaneously on the same initiative count.",
+            correct: false,
+            citation: "Player's Handbook, p. 147",
+          },
+          {
+            body: "The players decide the order between their tied characters.",
+            correct: true,
+            citation: "Player's Handbook, p. 147",
+          },
+          {
+            body: "The DM decides the order for all tied initiative rolls.",
+            correct: false,
+            citation: "Player's Handbook, p. 147",
+          },
+        ],
+        post: "In the event of a tie on initiative, the players decide the order among their tied characters, while the DM decides the order among tied NPCs and monsters.",
+      },
+    },
+    {
+      question: {
+        title: "Critical Hits and Damage Rolls",
+        body: "When you score a critical hit, how do you calculate the damage?",
+        answers: [
+          {
+            body: "Roll the attack's damage dice once and double the total.",
+            correct: false,
+            citation: "Player's Handbook, p. 152",
+          },
+          {
+            body: "Roll all of the attack's damage dice twice and add them together.",
+            correct: true,
+            citation: "Player's Handbook, p. 152",
+          },
+          {
+            body: "Roll the attack's damage dice twice and add them together, then double the result.",
+            correct: false,
+            citation: "Player's Handbook, p. 152",
+          },
+          {
+            body: "Roll the attack's damage dice twice and add them together, without adding any modifiers.",
+            correct: false,
+            citation: "Player's Handbook, p. 152",
+          },
+        ],
+        post: "A critical hit allows you to roll all of the attack's damage dice twice and add them together, plus any relevant modifiers, to determine the total damage dealt.",
+      },
+    },
+    {
+      question: {
+        title: "Paralyzed Condition Effects",
+        body: "What happens to a creature that is paralyzed?",
+        answers: [
+          {
+            body: "The creature's speed is reduced to half.",
+            correct: false,
+            citation: "Player's Handbook, p. 237",
+          },
+          {
+            body: "The creature automatically fails Strength and Dexterity saving throws.",
+            correct: true,
+            citation: "Player's Handbook, p. 237",
+          },
+          {
+            body: "Attack rolls against the creature have disadvantage.",
+            correct: false,
+            citation: "Player's Handbook, p. 237",
+          },
+          {
+            body: "The creature can take bonus actions but no regular actions.",
+            correct: false,
+            citation: "Player's Handbook, p. 237",
+          },
+        ],
+        post: "A paralyzed creature is incapacitated, can't move or speak, and automatically fails Strength and Dexterity saving throws. Additionally, attack rolls against the creature have advantage, and any attack that hits the creature is a critical hit if the attacker is within 5 feet of the creature.",
+      },
+    },
+    {
+      question: {
+        title: "Instant Death and Massive Damage",
+        body: "Under what circumstance does a character die instantly in D&D 5e?",
+        answers: [
+          {
+            body: "When they fail three death saving throws.",
+            correct: false,
+            citation: "Player's Handbook, p. 153",
+          },
+          {
+            body: "When damage reduces them to 0 hit points and the remaining damage equals or exceeds their hit point maximum.",
+            correct: true,
+            citation: "Player's Handbook, p. 153",
+          },
+          {
+            body: "When they take any damage while at 0 hit points.",
+            correct: false,
+            citation: "Player's Handbook, p. 153",
+          },
+          {
+            body: "When they fail a death saving throw and roll a 1.",
+            correct: false,
+            citation: "Player's Handbook, p. 153",
+          },
+        ],
+        post: "A character dies instantly if they take damage that reduces them to 0 hit points and the remaining damage equals or exceeds their hit point maximum.",
+      },
+    },
+    {
+      question: {
+        title: "Multiple Status Effects",
+        body: "How are multiple instances of the same condition resolved in D&D 5e?",
+        answers: [
+          {
+            body: "Each instance of the condition has its own duration, but the effects do not stack.",
+            correct: true,
+            citation: "Player's Handbook, p. 237",
+          },
+          {
+            body: "Only the most potent instance of the condition applies.",
+            correct: false,
+            citation: "Player's Handbook, p. 237",
+          },
+          {
+            body: "All instances of the condition stack, making the effect worse.",
+            correct: false,
+            citation: "Player's Handbook, p. 237",
+          },
+          {
+            body: "The condition is applied only once, ignoring any subsequent instances.",
+            correct: false,
+            citation: "Player's Handbook, p. 237",
+          },
+        ],
+        post: "When a creature is affected by multiple instances of the same condition, each instance has its own duration, but the effects do not become more severe.",
+      },
+    },
+    {
+      question: {
+        title: "Escaping a Grapple",
+        body: "What action must a grappled creature take to attempt to escape the grapple?",
+        answers: [
+          {
+            body: "Use their reaction",
+            correct: false,
+            citation: "Player's Handbook, p. 152",
+          },
+          {
+            body: "Use their bonus action",
+            correct: false,
+            citation: "Player's Handbook, p. 152",
+          },
+          {
+            body: "Use their action",
+            correct: true,
+            citation: "Player's Handbook, p. 152",
+          },
+          {
+            body: "Use half their movement",
+            correct: false,
+            citation: "Player's Handbook, p. 152",
+          },
+        ],
+        post: "To escape a grapple, a grappled creature must use its action to make a successful Strength (Athletics) or Dexterity (Acrobatics) check contested by the grappler's Strength (Athletics) check.",
+      },
+    },
+    {
+      question: {
+        title: "Calculating Damage in a Hypothetical Scenario",
+        body: "A fighter with a Strength score of 18 and proficiency in long swords hits an enemy with a long sword. The fighter also has the Dueling fighting style, which grants a +2 bonus to damage rolls when wielding a melee weapon in one hand and no other weapons. What is the total damage dealt if the fighter rolls a 6 on the damage die?",
         situation:
-          "The party is exploring an ancient tomb rumored to be filled with dangerous traps. The rogue is leading the way, carefully checking for traps as they progress through the dark corridors.",
+          "The fighter is engaged in combat and makes a successful attack roll with their long sword.",
         answers: [
           {
-            body: "Investigation",
+            body: "8 damage",
+            correct: false,
+            citation: "Player's Handbook, p. 152",
+          },
+          {
+            body: "10 damage",
             correct: true,
-            citation: "DnD_BasicRules_2018.pdf, p. 69",
+            citation: "Player's Handbook, p. 152",
           },
           {
-            body: "Perception",
+            body: "12 damage",
             correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 69",
+            citation: "Player's Handbook, p. 152",
           },
           {
-            body: "Survival",
+            body: "14 damage",
             correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 69",
-          },
-          {
-            body: "Stealth",
-            correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 69",
+            citation: "Player's Handbook, p. 152",
           },
         ],
-        post: "While both Investigation and Perception can be used to detect traps, Investigation is primarily used to find and understand the workings of traps, whereas Perception is more about noticing the presence of a trap.",
+        post: "The total damage is calculated by adding the damage die roll (6) to the fighter's Strength modifier (+4 for a Strength score of 18) and the Dueling fighting style bonus (+2), resulting in a total of 10 damage.",
       },
     },
     {
       question: {
-        title: "Barbarian's Rage Ability",
-        body: "What benefit does a Barbarian gain from using their Rage ability?",
+        title: "Deities and Their Domains",
+        body: "Which of the following deities is associated with the Knowledge domain?",
         answers: [
           {
-            body: "Advantage on Strength checks and saving throws, bonus to melee damage with Strength weapons, and resistance to bludgeoning, piercing, and slashing damage.",
+            body: "Aphrodite",
+            correct: false,
+            citation: "Player's Handbook, p. 244",
+          },
+          {
+            body: "Apollo",
             correct: true,
-            citation: "DnD_BasicRules_2018.pdf, p. 48",
+            citation: "Player's Handbook, p. 244",
           },
           {
-            body: "Advantage on all attack rolls, increased movement speed, and immunity to fear.",
+            body: "Ares",
             correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 48",
+            citation: "Player's Handbook, p. 244",
           },
           {
-            body: "Bonus to AC, extra attack per turn, and resistance to fire damage.",
+            body: "Hera",
             correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 48",
-          },
-          {
-            body: "Advantage on Dexterity checks and saving throws, bonus to ranged attack damage, and resistance to poison damage.",
-            correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 48",
+            citation: "Player's Handbook, p. 244",
           },
         ],
-        post: "When a Barbarian enters a Rage, they gain significant benefits that enhance their combat effectiveness, making them more durable and dangerous in battle.",
+        post: "Apollo is associated with the Knowledge domain, as well as the Life and Light domains.",
       },
     },
     {
       question: {
-        title: "Rations and Traveling in D&D",
-        body: "How much food does a character need per day to avoid exhaustion?",
+        title: "Ability Scores and Modifiers",
+        body: "An elf rogue has a Dexterity score of 18. During an attack, they have advantage and roll a 17 and a 5 on the d20. What is their total attack roll?",
+        situation:
+          "The rogue is attempting to attack an enemy with their shortbow, and they have advantage on the roll.",
         answers: [
           {
-            body: "One pound of food",
+            body: "21",
             correct: true,
-            citation: "DnD_BasicRules_2018.pdf, p. 68",
+            citation: "Player's Handbook, p. 135",
           },
           {
-            body: "Two pounds of food",
+            body: "20",
             correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 68",
+            citation: "Player's Handbook, p. 135",
           },
           {
-            body: "Half a pound of food",
+            body: "19",
             correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 68",
+            citation: "Player's Handbook, p. 135",
           },
           {
-            body: "Three pounds of food",
+            body: "18",
             correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 68",
+            citation: "Player's Handbook, p. 135",
           },
         ],
-        post: "A character can survive on half rations (half a pound of food per day) but will count it as half a day without food, potentially leading to exhaustion over time.",
+        post: "The rogue's Dexterity modifier is +4 (for a score of 18), and since they have advantage, they use the higher roll of 17. Adding the Dexterity modifier results in a total attack roll of 21.",
       },
     },
     {
       question: {
-        title: "Common Status Effect: Poisoned",
-        body: "What disadvantage does a creature suffer when it is poisoned?",
+        title: "Paladin Auras",
+        body: "What benefit does a paladin's Aura of Protection provide?",
         answers: [
           {
-            body: "Disadvantage on attack rolls and ability checks",
+            body: "It grants resistance to all damage types to friendly creatures within 10 feet.",
+            correct: false,
+            citation: "Player's Handbook, p. 67",
+          },
+          {
+            body: "It grants a bonus to saving throws to friendly creatures within 10 feet equal to the paladin's Charisma modifier.",
             correct: true,
-            citation: "DnD_BasicRules_2018.pdf, p. 171",
+            citation: "Player's Handbook, p. 67",
           },
           {
-            body: "Disadvantage on saving throws and attack rolls",
+            body: "It makes friendly creatures within 10 feet immune to being frightened.",
             correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 171",
+            citation: "Player's Handbook, p. 67",
           },
           {
-            body: "Disadvantage on saving throws and ability checks",
+            body: "It allows friendly creatures within 10 feet to add the paladin's proficiency bonus to their attack rolls.",
             correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 171",
-          },
-          {
-            body: "Disadvantage on ability checks and movement",
-            correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 171",
+            citation: "Player's Handbook, p. 67",
           },
         ],
-        post: "The poisoned condition can severely hamper a creature's effectiveness in combat and other activities by imposing disadvantage on attack rolls and ability checks.",
+        post: "Aura of Protection provides a bonus to saving throws for friendly creatures within 10 feet of the paladin, equal to the paladin's Charisma modifier.",
       },
     },
     {
       question: {
-        title: "Definition of the Stealth Skill",
-        body: "What is the primary use of the Stealth skill in D&D?",
+        title: "Definition of the Insight Skill",
+        body: "What does proficiency in the Insight skill represent?",
         answers: [
           {
-            body: "To conceal yourself from enemies, slink past guards, slip away without being noticed, or sneak up on someone without being seen or heard.",
+            body: "Proficiency in Insight represents a character's ability to notice hidden objects.",
+            correct: false,
+            citation: "Player's Handbook, p. 139",
+          },
+          {
+            body: "Proficiency in Insight represents a character's ability to understand languages.",
+            correct: false,
+            citation: "Player's Handbook, p. 139",
+          },
+          {
+            body: "Proficiency in Insight represents a character's ability to determine the true intentions of a creature, such as when searching out a lie or predicting someone's next move.",
             correct: true,
-            citation: "DnD_BasicRules_2018.pdf, p. 62",
+            citation: "Player's Handbook, p. 139",
           },
           {
-            body: "To perform acrobatic stunts, including dives, rolls, somersaults, and flips.",
+            body: "Proficiency in Insight represents a character's ability to perform acrobatic stunts.",
             correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 62",
-          },
-          {
-            body: "To calm down a domesticated animal, keep a mount from getting spooked, or intuit an animal's intentions.",
-            correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 62",
-          },
-          {
-            body: "To understand how to disable traps or determine the mechanisms behind them.",
-            correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 62",
+            citation: "Player's Handbook, p. 139",
           },
         ],
-        post: "The Stealth skill is crucial for rogues and other characters who need to avoid detection and move quietly in dangerous situations.",
+        post: "The Insight skill reflects a character's sharp perception of others' emotions and intentions, which can be critical in social interactions and determining the truthfulness of statements.",
       },
     },
     {
       question: {
-        title: "Understanding Advantage",
-        body: "What happens when you have advantage on an attack roll in D&D?",
+        title: "Definition of Perception",
+        body: "What does the Perception skill represent in Dungeons & Dragons 5th Edition?",
         answers: [
           {
-            body: "You roll a second d20 and use the higher roll.",
+            body: "A character's ability to recall lore about spells, magic items, and the planes of existence.",
+            correct: false,
+            citation: "Player's Handbook, p. 139",
+          },
+          {
+            body: "A character's ability to notice, hear, or otherwise detect the presence of something.",
             correct: true,
-            citation: "DnD_BasicRules_2018.pdf, p. 4",
+            citation: "Player's Handbook, p. 139",
           },
           {
-            body: "You roll a second d20 and use the lower roll.",
+            body: "A character's ability to influence others through social interaction.",
             correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 4",
+            citation: "Player's Handbook, p. 139",
           },
           {
-            body: "You automatically hit your target.",
+            body: "A character's ability to perform feats of agility and balance.",
             correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 4",
-          },
-          {
-            body: "You add 5 to your attack roll.",
-            correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 4",
+            citation: "Player's Handbook, p. 139",
           },
         ],
-        post: "Advantage allows you to roll two d20s and take the higher result, increasing your chances of success on the roll.",
+        post: "The Perception skill is crucial for detecting hidden enemies, finding traps, and noticing other important details in the environment.",
       },
     },
     {
       question: {
-        title: "Critical Hits in D&D",
-        body: "What happens when you score a critical hit on an attack roll?",
+        title: "Hypothetical Combat Scenario",
+        body: "A wizard casts Fireball at a group of goblins. The goblins have a Dexterity saving throw modifier of +2. If the wizard's spell save DC is 15, what roll do the goblins need to make to avoid taking full damage from the Fireball?",
+        situation:
+          "The wizard has positioned the Fireball to catch four goblins in its area of effect.",
         answers: [
           {
-            body: "You roll all of the attack's damage dice twice and add them together.",
+            body: "13 or higher",
             correct: true,
-            citation: "DnD_BasicRules_2018.pdf, p. 76",
+            citation: "Player's Handbook, p. 241",
           },
           {
-            body: "You automatically deal maximum damage for the attack.",
+            body: "15 or higher",
             correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 76",
+            citation: "Player's Handbook, p. 241",
           },
           {
-            body: "You roll a second d20 to confirm the critical hit.",
+            body: "17 or higher",
             correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 76",
+            citation: "Player's Handbook, p. 241",
           },
           {
-            body: "You add an extra damage die to the attack's damage.",
+            body: "14 or higher",
             correct: false,
-            citation: "DnD_BasicRules_2018.pdf, p. 76",
+            citation: "Player's Handbook, p. 241",
           },
         ],
-        post: "Critical hits allow for significant damage potential by doubling the damage dice rolled for the attack, making them a powerful aspect of combat.",
+        post: "To avoid taking full damage from the Fireball, the goblins need to roll a 13 or higher on their Dexterity saving throw, because they get +2, equaling 15. They need to match or exceed the wizard's spell save DC of 15.",
+      },
+    },
+    {
+      question: {
+        title: "Hypothetical Combat Scenario",
+        scenario:
+          "A rogue uses their Cunning Action to attack twice in a single turn.",
+        body: "Is this a legal action?",
+        answers: [
+          {
+            body: "True",
+            correct: false,
+            citation: "Player's Handbook, p. 76",
+          },
+          {
+            body: "False",
+            correct: true,
+            citation: "Player's Handbook, p. 76",
+          },
+        ],
+        post: "A rogue's Cunning Action allows them to take a bonus action to Dash, Disengage, or Hide, but it does not allow them to attack twice in a single turn.",
+      },
+    },
+    {
+      question: {
+        title: "Understanding Resistances",
+        body: "A creature with resistance to fire damage takes how much damage from a fireball spell that deals 24 points of fire damage?",
+        answers: [
+          {
+            body: "24 points",
+            correct: false,
+            citation: "Player's Handbook, p. 153",
+          },
+          {
+            body: "12 points",
+            correct: true,
+            citation: "Player's Handbook, p. 153",
+          },
+          {
+            body: "6 points",
+            correct: false,
+            citation: "Player's Handbook, p. 153",
+          },
+          {
+            body: "No damage",
+            correct: false,
+            citation: "Player's Handbook, p. 153",
+          },
+        ],
+        post: "When a creature has resistance to a damage type, it takes half damage from attacks of that type. In this case, the creature takes 12 points of fire damage from the fireball spell.",
+      },
+    },
+    {
+      question: {
+        title: "Definition of Force Damage",
+        body: "What is the correct definition of force damage in Dungeons & Dragons 5th Edition?",
+        answers: [
+          {
+            body: "Damage caused by fire and extreme heat.",
+            correct: false,
+            citation: "Player's Handbook, p. 153",
+          },
+          {
+            body: "Damage caused by the sheer power of a spell or other magical effect.",
+            correct: true,
+            citation: "Player's Handbook, p. 153",
+          },
+          {
+            body: "Damage caused by extreme cold or ice.",
+            correct: false,
+            citation: "Player's Handbook, p. 153",
+          },
+          {
+            body: "Damage caused by poison or venom.",
+            correct: false,
+            citation: "Player's Handbook, p. 153",
+          },
+        ],
+        post: "Force damage is unique as it represents pure magical energy focused into a damaging form. It is commonly dealt by spells like magic missile and spiritual weapon.",
+      },
+    },
+    {
+      question: {
+        title: "Death Saving Throws Mechanics",
+        body: "What happens when a character rolls a natural 1 on a death saving throw?",
+        answers: [
+          {
+            body: "The character suffers one failure.",
+            correct: false,
+            citation: "Player's Handbook, p. 153",
+          },
+          {
+            body: "The character suffers two failures.",
+            correct: true,
+            citation: "Player's Handbook, p. 153",
+          },
+          {
+            body: "The character instantly dies.",
+            correct: false,
+            citation: "Player's Handbook, p. 153",
+          },
+          {
+            body: "The character becomes stable.",
+            correct: false,
+            citation: "Player's Handbook, p. 153",
+          },
+        ],
+        post: "Rolling a natural 1 on a death saving throw is particularly dangerous as it counts as two failures, hastening the risk of death for the character.",
+      },
+    },
+    {
+      question: {
+        title: "Combat Action: Disengage",
+        body: "What is the primary benefit of taking the Disengage action in combat?",
+        answers: [
+          {
+            body: "Your movement does not provoke opportunity attacks for the rest of the turn.",
+            correct: true,
+            citation: "Player's Handbook, p. 150",
+          },
+          {
+            body: "You gain advantage on all attack rolls for the rest of the turn.",
+            correct: false,
+            citation: "Player's Handbook, p. 150",
+          },
+          {
+            body: "You can move an additional distance equal to your speed.",
+            correct: false,
+            citation: "Player's Handbook, p. 150",
+          },
+          {
+            body: "You can take another action immediately after the Disengage action.",
+            correct: false,
+            citation: "Player's Handbook, p. 150",
+          },
+        ],
+        post: "Using the Disengage action is a great way to avoid opportunity attacks when you need to move away from an enemy without provoking a potential hit.",
       },
     },
   ];

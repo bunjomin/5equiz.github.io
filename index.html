@@ -38,6 +38,10 @@
       background-color: #878787;
       cursor: not-allowed;
     }
+
+    #citation:empty {
+      display: none;
+    }
   </style>
 
   <div class="max-w-2xl mx-auto bg-white p-8 shadow-md rounded-lg">
@@ -57,6 +61,7 @@
       </button>
     </form>
     <p class="mt-4 text-green-600" id="post-answer"></p>
+    <p class="mt-4 font-semibold text-gray-600" id="citation"></p>
   </div>
   <script src="quiz.js"></script>
 </body>
