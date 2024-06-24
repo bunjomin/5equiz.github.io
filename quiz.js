@@ -396,6 +396,211 @@ document.addEventListener("DOMContentLoaded", function () {
         post: "Some spells, such as 'Healing Word', specifically state that they can be cast as a bonus action. This allows characters to perform another action on their turn, maximizing their effectiveness in combat.",
       },
     },
+    {
+      question: {
+        title: "Understanding Dungeon Traps",
+        body: "When a character is trying to detect a trap in a dungeon, which of the following skills is primarily used?",
+        situation:
+          "The party is exploring an ancient tomb rumored to be filled with dangerous traps. The rogue is leading the way, carefully checking for traps as they progress through the dark corridors.",
+        answers: [
+          {
+            body: "Investigation",
+            correct: true,
+            citation: "DnD_BasicRules_2018.pdf, p. 69",
+          },
+          {
+            body: "Perception",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 69",
+          },
+          {
+            body: "Survival",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 69",
+          },
+          {
+            body: "Stealth",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 69",
+          },
+        ],
+        post: "While both Investigation and Perception can be used to detect traps, Investigation is primarily used to find and understand the workings of traps, whereas Perception is more about noticing the presence of a trap.",
+      },
+    },
+    {
+      question: {
+        title: "Barbarian's Rage Ability",
+        body: "What benefit does a Barbarian gain from using their Rage ability?",
+        answers: [
+          {
+            body: "Advantage on Strength checks and saving throws, bonus to melee damage with Strength weapons, and resistance to bludgeoning, piercing, and slashing damage.",
+            correct: true,
+            citation: "DnD_BasicRules_2018.pdf, p. 48",
+          },
+          {
+            body: "Advantage on all attack rolls, increased movement speed, and immunity to fear.",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 48",
+          },
+          {
+            body: "Bonus to AC, extra attack per turn, and resistance to fire damage.",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 48",
+          },
+          {
+            body: "Advantage on Dexterity checks and saving throws, bonus to ranged attack damage, and resistance to poison damage.",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 48",
+          },
+        ],
+        post: "When a Barbarian enters a Rage, they gain significant benefits that enhance their combat effectiveness, making them more durable and dangerous in battle.",
+      },
+    },
+    {
+      question: {
+        title: "Rations and Traveling in D&D",
+        body: "How much food does a character need per day to avoid exhaustion?",
+        answers: [
+          {
+            body: "One pound of food",
+            correct: true,
+            citation: "DnD_BasicRules_2018.pdf, p. 68",
+          },
+          {
+            body: "Two pounds of food",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 68",
+          },
+          {
+            body: "Half a pound of food",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 68",
+          },
+          {
+            body: "Three pounds of food",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 68",
+          },
+        ],
+        post: "A character can survive on half rations (half a pound of food per day) but will count it as half a day without food, potentially leading to exhaustion over time.",
+      },
+    },
+    {
+      question: {
+        title: "Common Status Effect: Poisoned",
+        body: "What disadvantage does a creature suffer when it is poisoned?",
+        answers: [
+          {
+            body: "Disadvantage on attack rolls and ability checks",
+            correct: true,
+            citation: "DnD_BasicRules_2018.pdf, p. 171",
+          },
+          {
+            body: "Disadvantage on saving throws and attack rolls",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 171",
+          },
+          {
+            body: "Disadvantage on saving throws and ability checks",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 171",
+          },
+          {
+            body: "Disadvantage on ability checks and movement",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 171",
+          },
+        ],
+        post: "The poisoned condition can severely hamper a creature's effectiveness in combat and other activities by imposing disadvantage on attack rolls and ability checks.",
+      },
+    },
+    {
+      question: {
+        title: "Definition of the Stealth Skill",
+        body: "What is the primary use of the Stealth skill in D&D?",
+        answers: [
+          {
+            body: "To conceal yourself from enemies, slink past guards, slip away without being noticed, or sneak up on someone without being seen or heard.",
+            correct: true,
+            citation: "DnD_BasicRules_2018.pdf, p. 62",
+          },
+          {
+            body: "To perform acrobatic stunts, including dives, rolls, somersaults, and flips.",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 62",
+          },
+          {
+            body: "To calm down a domesticated animal, keep a mount from getting spooked, or intuit an animal's intentions.",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 62",
+          },
+          {
+            body: "To understand how to disable traps or determine the mechanisms behind them.",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 62",
+          },
+        ],
+        post: "The Stealth skill is crucial for rogues and other characters who need to avoid detection and move quietly in dangerous situations.",
+      },
+    },
+    {
+      question: {
+        title: "Understanding Advantage",
+        body: "What happens when you have advantage on an attack roll in D&D?",
+        answers: [
+          {
+            body: "You roll a second d20 and use the higher roll.",
+            correct: true,
+            citation: "DnD_BasicRules_2018.pdf, p. 4",
+          },
+          {
+            body: "You roll a second d20 and use the lower roll.",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 4",
+          },
+          {
+            body: "You automatically hit your target.",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 4",
+          },
+          {
+            body: "You add 5 to your attack roll.",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 4",
+          },
+        ],
+        post: "Advantage allows you to roll two d20s and take the higher result, increasing your chances of success on the roll.",
+      },
+    },
+    {
+      question: {
+        title: "Critical Hits in D&D",
+        body: "What happens when you score a critical hit on an attack roll?",
+        answers: [
+          {
+            body: "You roll all of the attack's damage dice twice and add them together.",
+            correct: true,
+            citation: "DnD_BasicRules_2018.pdf, p. 76",
+          },
+          {
+            body: "You automatically deal maximum damage for the attack.",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 76",
+          },
+          {
+            body: "You roll a second d20 to confirm the critical hit.",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 76",
+          },
+          {
+            body: "You add an extra damage die to the attack's damage.",
+            correct: false,
+            citation: "DnD_BasicRules_2018.pdf, p. 76",
+          },
+        ],
+        post: "Critical hits allow for significant damage potential by doubling the damage dice rolled for the attack, making them a powerful aspect of combat.",
+      },
+    },
   ];
   total = questions.length;
 
