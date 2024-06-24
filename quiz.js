@@ -11,8 +11,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const questionLabel = document.getElementById("question-label");
   const situationLabel = document.getElementById("situation-label");
   const citationText = document.getElementById("citation");
+  const progressBar = document.getElementById("progress-bar");
+  const total = 10;
+
   let correct = 0;
-  let total = 0;
+  let currentQuestionIndex = 0;
+
+  function updateProgressBar() {
+    const progress = ((currentQuestionIndex / total) * 100).toFixed(2);
+    progressBar.style.width = `${progress}%`;
+  }
 
   function complete() {
     answersContainer.innerHTML = "";
@@ -95,6 +103,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       answersContainer.appendChild(answerCard);
     });
+
+    updateProgressBar();
   }
 
   document.getElementById("quiz-form").addEventListener("submit", function (e) {
@@ -126,6 +136,10 @@ document.addEventListener("DOMContentLoaded", function () {
         nextButton.style.display = "block";
         nextButton.removeAttribute("disabled");
       }
+      currentQuestionIndex += 1;
+      if (currentQuestionIndex >= total) {
+        complete();
+      }
     }
   });
 
@@ -138,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
     loadQuestion(pickRandomQuestion());
   });
 
-  const questions = [
+  let questions = [
     {
       question: {
         title: "Channel Divinity Options for Paladins",
@@ -832,8 +846,38 @@ document.addEventListener("DOMContentLoaded", function () {
         post: "Using the Disengage action is a great way to avoid opportunity attacks when you need to move away from an enemy without provoking a potential hit.",
       },
     },
+    {
+      question: {
+        title: "Understanding Advantage and Disadvantage",
+        body: "Which of the following situations would grant advantage on an attack roll?",
+        situation:
+          "You are a rogue hidden behind a tree, about to make a sneak attack.",
+        answers: [
+          {
+            body: "The target is unseen by you.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 151",
+          },
+          {
+            body: "The target is paralyzed.",
+            correct: true,
+            citation: "DnD 5e Players Handbook, page 237",
+          },
+          {
+            body: "You are prone and attacking with a ranged weapon.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 238",
+          },
+          {
+            body: "You are attacking a target within 5 feet with a ranged weapon.",
+            correct: false,
+            citation: "DnD 5e Players Handbook, page 151",
+          },
+        ],
+        post: "In D&D 5e, advantage and disadvantage are commonly influenced by conditions or tactical positioning. Understanding these mechanics can greatly improve your effectiveness in combat.",
+      },
+    },
   ];
-  total = questions.length;
 
   // Thanks https://stackoverflow.com/a/2450976
   function shuffle(array) {
@@ -857,6 +901,10 @@ document.addEventListener("DOMContentLoaded", function () {
     shuffle(questions);
     return questions.pop();
   }
+
+  shuffle(questions);
+  questions = [...questions.slice(0, total)];
+  console.log(questions.map((q) => q.question.title));
 
   loadQuestion(pickRandomQuestion());
 });
