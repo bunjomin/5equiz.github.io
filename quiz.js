@@ -1,17 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const questionData = {
-    "question": {
-      "title": "What is the maximum level a character can achieve in D&D 5E?",
-      "body": "Please choose the correct answer from the options below.",
-      "situation": "Imagine your character has been adventuring for a long time and has gained a lot of experience.",
-      "answers": [
-        {"body": "20", "correct": true, "citation": "Player's Handbook, Chapter 1"},
-        {"body": "30", "correct": false, "citation": "Player's Handbook, Chapter 1"},
-        {"body": "40", "correct": false, "citation": "Player's Handbook, Chapter 1"}
-      ],
-      "post": "The maximum level a character can achieve is 20, as stated in the Player's Handbook."
-    }
-  };
+  let questionData;
 
   const questionTitle = document.getElementById('question-title');
   const questionBody = document.getElementById('question-body');
@@ -21,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const submitButton = document.getElementById('submit');
 
   function loadQuestion(data) {
+    questionData = data;
     answersContainer.innerHTML = '';
     questionTitle.textContent = data.question.title;
     questionBody.textContent = data.question.body;
@@ -80,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (correct) {
         postAnswer.textContent = questionData.question.post;
         postAnswer.className = 'mt-4 text-green-600';
-        loadQuestion();
+        loadQuestion(pickRandomQuestion());
       } else {
         postAnswer.textContent = 'Incorrect answer. Please try again.';
         postAnswer.className = 'mt-4 text-red-600';
