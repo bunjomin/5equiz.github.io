@@ -514,12 +514,12 @@ document.addEventListener("DOMContentLoaded", function () {
           },
           {
             body: "10 damage",
-            correct: true,
+            correct: false,
             citation: "Player's Handbook, p. 152",
           },
           {
             body: "12 damage",
-            correct: false,
+            correct: true,
             citation: "Player's Handbook, p. 152",
           },
           {
@@ -528,7 +528,7 @@ document.addEventListener("DOMContentLoaded", function () {
             citation: "Player's Handbook, p. 152",
           },
         ],
-        post: "The total damage is calculated by adding the damage die roll (6) to the fighter's Strength modifier (+4 for a Strength score of 18) and the Dueling fighting style bonus (+2), resulting in a total of 10 damage.",
+        post: "The total damage is calculated by adding the damage die roll (6) to the fighter's Strength modifier (+4 for a Strength score of 18) and the Dueling fighting style bonus (+2), resulting in a total of 12 damage.",
       },
     },
     {
